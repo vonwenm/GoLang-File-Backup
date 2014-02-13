@@ -18,15 +18,30 @@ func main() {
 		log.Fatal(ErrInvalidArg)
 	}
 
-	fmt.Println(len(os.Args))
-
 	originDirectory := os.Args[1]
-	// backupDirectory := os.Args[1]
+	backupDirectory := os.Args[2]
 
 	s := DirectoryReader.ReadAll(originDirectory)
 
-	for i := 0; i < 2; i++ {
+	for i := 0; i < len(s); i++ {
 		fmt.Println(s[i].Name())
 	}
 
+	b := DirectoryReader.ReadAll(backupDirectory)
+
+	for i := 0; i < len(b); i++ {
+		fmt.Println(b[i].Name())
+	}
+
+}		
+
+func CompareLists() (isEqual bool, added []string, removed []string)
+{
+
 }
+
+func CopyDirectory(){}
+
+func CopyFile(){}
+
+func Archive(){}
